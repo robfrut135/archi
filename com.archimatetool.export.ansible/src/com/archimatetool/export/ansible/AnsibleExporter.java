@@ -28,13 +28,13 @@ import com.archimatetool.model.IFolder;
 
 
 /**
- * Example Exporter of Archimate model
+ * Exporter of Archimate model to Ansible format
  * 
  * @author Roberto Frutos Renedo
  */
 public class AnsibleExporter implements IModelExporter {
     
-    String MY_EXTENSION = ".mex"; //$NON-NLS-1$
+    String MY_EXTENSION = ".yaml"; //$NON-NLS-1$
     String MY_EXTENSION_WILDCARD = "*.yaml"; //$NON-NLS-1$
     
     private OutputStreamWriter writer;
