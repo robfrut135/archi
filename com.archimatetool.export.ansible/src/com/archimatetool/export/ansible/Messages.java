@@ -9,10 +9,10 @@ import org.eclipse.osgi.util.NLS;
 
 public class Messages extends NLS {
 
-    private static final String BUNDLE_NAME = "com.archimatetool.example.messages"; //$NON-NLS-1$
+    private static final String BUNDLE_NAME = "com.archimatetool.export.ansible.messages"; //$NON-NLS-1$
 
-    public static String MyExporter_0;
-    public static String MyExporter_1;
+    public static String AnsibleExporter_0;
+    public static String AnsibleExporter_1;
 
     static {
         // initialize resource bundle

@@ -30,12 +30,12 @@ import com.archimatetool.model.IFolder;
 /**
  * Example Exporter of Archimate model
  * 
- * @author Phillip Beauvoir
+ * @author Roberto Frutos Renedo
  */
 public class AnsibleExporter implements IModelExporter {
     
     String MY_EXTENSION = ".mex"; //$NON-NLS-1$
-    String MY_EXTENSION_WILDCARD = "*.mex"; //$NON-NLS-1$
+    String MY_EXTENSION_WILDCARD = "*.yaml"; //$NON-NLS-1$
     
     private OutputStreamWriter writer;
     
@@ -102,7 +102,7 @@ public class AnsibleExporter implements IModelExporter {
      */
     private File askSaveFile() {
         FileDialog dialog = new FileDialog(Display.getCurrent().getActiveShell(), SWT.SAVE);
-        dialog.setText(Messages.MyExporter_0);
+        dialog.setText(Messages.AnsibleExporter_0);
         dialog.setFilterExtensions(new String[] { MY_EXTENSION_WILDCARD, "*.*" } ); //$NON-NLS-1$
         String path = dialog.open();
         if(path == null) {
@@ -119,8 +119,8 @@ public class AnsibleExporter implements IModelExporter {
         // Make sure the file does not already exist
         if(file.exists()) {
             boolean result = MessageDialog.openQuestion(Display.getCurrent().getActiveShell(),
-                    Messages.MyExporter_0,
-                    NLS.bind(Messages.MyExporter_1, file));
+                    Messages.AnsibleExporter_0,
+                    NLS.bind(Messages.AnsibleExporter_1, file));
             if(!result) {
                 return null;
             }
