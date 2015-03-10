@@ -24,6 +24,7 @@ import com.archimatetool.model.FolderType;
 import com.archimatetool.model.IArchimateComponent;
 import com.archimatetool.model.IArchimateModel;
 import com.archimatetool.model.IFolder;
+import com.archimatetool.model.IProperty;
 
 
 
@@ -51,11 +52,11 @@ public class AnsibleExporter implements IModelExporter {
         
         writer = new OutputStreamWriter(new FileOutputStream(file));
         
-        writeFolder(model.getFolder(FolderType.BUSINESS));
-        writeFolder(model.getFolder(FolderType.APPLICATION));
+//        writeFolder(model.getFolder(FolderType.BUSINESS));
+//        writeFolder(model.getFolder(FolderType.APPLICATION));
         writeFolder(model.getFolder(FolderType.TECHNOLOGY));
-        writeFolder(model.getFolder(FolderType.CONNECTORS));
-        writeFolder(model.getFolder(FolderType.RELATIONS));
+//        writeFolder(model.getFolder(FolderType.CONNECTORS));
+//        writeFolder(model.getFolder(FolderType.RELATIONS));
         
         writer.close();
     }
@@ -72,6 +73,11 @@ public class AnsibleExporter implements IModelExporter {
                         "," + normalise(component.getName()) //$NON-NLS-1$
                         + "," + normalise(component.getDocumentation()); //$NON-NLS-1$
                 writer.write(string + "\n"); //$NON-NLS-1$
+                
+                for (IProperty property: component.getProperties()) {
+                	
+                	writer.write("   + " + property.getKey() + ":" + property.getValue() + "\n");
+                }
             }
         }
     }
